@@ -1,0 +1,14 @@
+void onColorCustomEventColorChanged(AbstractEffector *effector, byte newRed, byte newGreen, byte newBlue)
+    {
+        char effectorIdentifier[9];
+        effector->getIdentifier(effectorIdentifier, 9);
+
+        if (strcmp(effectorIdentifier, "eyeColor") == 0) {
+          pixels.begin();
+
+          pixels.fill(pixels.Color(newRed,newGreen,newBlue), 0, NUM_LEDS);
+
+          pixels.show();
+           
+        }   
+    }
